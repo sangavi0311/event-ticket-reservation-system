@@ -1,0 +1,111 @@
+{
+  "info": {
+    "name": "Event Ticket Reservation API",
+    "_postman_id": "e4b85c8a-03df-4d51-9dd5-8b3fd32a9001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List demo users",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/users"
+      }
+    },
+    {
+      "name": "List events and ticket availability",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Create event",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"organizer_id\":1,\"title\":\"College Fest\",\"description\":\"Annual fest\",\"tier_name\":\"General\",\"price\":199,\"quantity\":50,\"sales_cutoff\":\"2099-12-31T23:59:00\"}"
+        },
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Create 10-minute hold",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"attendee_id\":2,\"tier_id\":1,\"quantity\":2}"
+        },
+        "url": "{{baseUrl}}/api/holds"
+      }
+    },
+    {
+      "name": "Approve mock payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"order_id\":\"PASTE_ORDER_ID_HERE\",\"approve\":true}"
+        },
+        "url": "{{baseUrl}}/api/payments/mock"
+      }
+    },
+    {
+      "name": "Reject mock payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"order_id\":\"PASTE_ORDER_ID_HERE\",\"approve\":false}"
+        },
+        "url": "{{baseUrl}}/api/payments/mock"
+      }
+    },
+    {
+      "name": "Organizer analytics",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/analytics/1"
+      }
+    },
+    {
+      "name": "Run expired hold cleanup",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/jobs/expire-holds"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:5000"
+    }
+  ]
+}
