@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event & Ticket Reservation</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><h1>Event & Ticket Reservation</h1><p>Beginner-friendly demo project</p></header>
+<main>
+  <section class="card">
+    <h2>How to test</h2>
+    <ol>
+      <li>Open <code>/api/users</code> to see demo user IDs.</li>
+      <li>Open <code>/api/events</code> to see events and ticket tiers.</li>
+      <li>Use Postman to create a 10-minute hold with <code>POST /api/holds</code>.</li>
+      <li>Pay using <code>POST /api/payments/mock</code> with approve true or false.</li>
+      <li>See organizer analytics at <code>/api/analytics/1</code>.</li>
+    </ol>
+  </section>
+  <section class="card">
+    <h2>API endpoints</h2>
+    <ul>
+      <li><code>GET /api/users</code></li>
+      <li><code>GET /api/events</code></li>
+      <li><code>POST /api/events</code></li>
+      <li><code>POST /api/holds</code></li>
+      <li><code>POST /api/payments/mock</code></li>
+      <li><code>GET /api/orders/&lt;order_id&gt;</code></li>
+      <li><code>GET /api/analytics/1</code></li>
+      <li><code>POST /api/jobs/expire-holds</code></li>
+    </ul>
+  </section>
+  <section class="card warning">
+    <h2>Important</h2>
+    <p>This is a learning prototype, not a production-ready ticketing platform. It uses SQLite and a mock payment endpoint. Production deployment should use PostgreSQL, Redis caching, a real queue/cron worker, secure authentication, and proper payment-provider webhooks.</p>
+  </section>
+</main>
+<footer>Demo data only · No real payments</footer>
+</body>
+</html>
